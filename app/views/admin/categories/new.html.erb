@@ -1,0 +1,35 @@
+<article class="manager-categories-create">
+
+  <section class="section-header">
+    <h2>Manager &raquo; Add New Section</h2>
+  </section>
+
+  <aside class="notification">
+      <%= link_to 'All Categories', [:admin, :categories], class: 'btn btn-info' %>
+  </aside>
+
+  <div class="container">
+    <div class="col-md-8 offset-md-2">
+      <%= form_for [:admin, @category] do |form| %>
+        <% if form.object.errors.any? %>
+          <div class="alert alert-warning">
+            <strong>Issues Detected:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="input-group mb-3">
+          <%= form.label :name %>
+          <%= form.text_field :name, class: 'form-control' %>
+        </div>
+
+      <%= form.submit 'Create Category', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
+</article>

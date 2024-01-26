@@ -1,0 +1,28 @@
+<section class="category-list-section">
+
+  <header class="mb-4">
+    <h1 style="margin-top: 50px;">Admin Categories</h1>
+  
+  <div class="card">
+    <div class="card-body">
+      <table class="table table-striped">
+        <tbody>
+          <%= render @categories %>
+        </tbody>
+        <thead>
+          <tr>
+            <th scope="col" colspan="2">Category</th>
+          </tr>
+        </thead>
+      </table>  
+    </div>
+  </div>
+
+  </header>
+
+  <div class="mb-3">
+    <%= link_to 'New Category', [:new, :admin, :category], class: 'btn btn-primary' %>
+  </div>
+
+
+</section>
