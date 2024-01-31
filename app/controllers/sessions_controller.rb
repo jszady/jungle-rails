@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
   #we need to auth the user 
     #then we need to save it in the session
   def create
-    user = User.find_by(email: params[:email])
+    user = User.authenticate_with_credentials(params[:email], params[:password])
 
-    if user && user.authenticate(params[:password])
+    if user
       session[:user_id] = user.id
       redirect_to root_path
     else 
